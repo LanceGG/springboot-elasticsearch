@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  data:
+    elasticsearch:
+      # 集群名
+      cluster-name: cluster-lasse
+      # 连接节点,注意在集群中通信都是9300端口，否则会报错无法连接上！
+      cluster-nodes: 192.168.43.131:9300,10.130.202.243:9300
+      # 是否本地连接
+      local: false
+      repositories:
+        # 仓库中数据存储
+        enabled: true
