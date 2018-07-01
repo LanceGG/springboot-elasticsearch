@@ -2,6 +2,8 @@ package com.lasse.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,15 +13,14 @@ public class Article implements Serializable {
     @Id
     private String id;
     /**标题*/
+    @Field(type = FieldType.Text, fielddata = true)
     private String title;
     /**摘要*/
-    private String abstracts;
+    @Field(type = FieldType.Text, fielddata = true)
+    private String pinyin;
     /**内容*/
-    private String content;
-    /**发表时间*/
-    private Date postTime;
-    /**点击率*/
-    private Long clickCount;
+    @Field(type = FieldType.Text, fielddata = true)
+    private String translate;
 
     public String getId() {
         return id;
@@ -37,48 +38,29 @@ public class Article implements Serializable {
         this.title = title;
     }
 
-    public String getAbstracts() {
-        return abstracts;
+    public String getPinyin() {
+        return pinyin;
     }
 
-    public void setAbstracts(String abstracts) {
-        this.abstracts = abstracts;
+    public void setPinyin(String pinyin) {
+        this.pinyin = pinyin;
     }
 
-    public String getContent() {
-        return content;
+    public String getTranslate() {
+        return translate;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setTranslate(String translate) {
+        this.translate = translate;
     }
-
-    public Date getPostTime() {
-        return postTime;
-    }
-
-    public void setPostTime(Date postTime) {
-        this.postTime = postTime;
-    }
-
-    public Long getClickCount() {
-        return clickCount;
-    }
-
-    public void setClickCount(Long clickCount) {
-        this.clickCount = clickCount;
-    }
-
 
     @Override
     public String toString() {
         return "Article{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", abstracts='" + abstracts + '\'' +
-                ", content='" + content + '\'' +
-                ", postTime=" + postTime +
-                ", clickCount=" + clickCount +
+                ", pinyin='" + pinyin + '\'' +
+                ", translate='" + translate + '\'' +
                 '}';
     }
 }
