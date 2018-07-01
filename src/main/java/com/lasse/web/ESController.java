@@ -115,7 +115,8 @@ public class ESController {
 //        while (iterator.hasNext()) {
 //            System.out.println(iterator.next());
 //        }
-        List<Article> articles = articleSearchRepository.findArticlesByTranslateIsStartingWith(queryString);
+        List<Article> articles = articleSearchRepository.findArticles(queryString);
+//        List<Article> articles = articleSearchRepository.findArticlesByTranslateIsStartingWith(queryString);
         articles.forEach(article -> {
             System.out.println(article.toString());
         });

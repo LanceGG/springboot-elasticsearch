@@ -15,4 +15,7 @@ public interface ArticleSearchRepository extends ElasticsearchRepository<Article
      public List<Article> findArticlesByTranslateStartingWith(String str);
 
      public List<Article> findArticlesByTranslateIsStartingWith(String str);
+
+     @Query("{\"match_phrase_prefix\" : {\"translate\" : \"?0\"}}")
+     public List<Article> findArticles(String str);
 }
