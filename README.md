@@ -7,3 +7,5 @@ personal elasticsearch project
  
  * spring-data-elasticsearch 与elasticsearch连接，省去自己的一部分工作量,具体项目参考 https://github.com/spring-projects/spring-data-elasticsearch
  
+ * elasticsearch 各种详细的语法 http://www.cnblogs.com/ljhdo/p/4486978.html
+ 
